@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 
-from datasets import load_metric
+from datasets import load_metric, Dataset
 from transformers import (
     AutoTokenizer,
     AutoModelForSeq2SeqLM,
@@ -19,7 +19,6 @@ from yaml import parse
 def argument_parser() -> ArgumentParser:
     parser = ArgumentParser(description="T5 training for ABSAPT")
 
-    parser.add_argument("--test_data", required=True)
     parser.add_argument("--train_data", required=True)
     parser.add_argument("--model_name_or_path", required=True)
     parser.add_argument("--output_dir", required=True)
@@ -27,11 +26,11 @@ def argument_parser() -> ArgumentParser:
     # Training args
     parser.add_argument("--max_input_length", default=128, type=int, required=False)
     parser.add_argument("--max_target_length", default=64, type=int)
-    parser.add_argument("--batch_size", default=64, type=int)
     parser.add_argument("--evaluation_strategy", default="steps", required=False)
+    parser.add_argument("--eval_steps", default=500, type=int)
     parser.add_argument("--learning_rate", default=5e-05, type=float, required=False)
-    parser.add_argument("--per_device_train_batch_size", default=8, type=int)
-    parser.add_argument("--per_device_eval_batch_size", default=8, type=int)
+    parser.add_argument("--per_device_train_batch_size", default=16, type=int)
+    parser.add_argument("--per_device_eval_batch_size", default=16, type=int)
     parser.add_argument("--seed", default=42, type=int)
     parser.add_argument("--weight_decay", default=0.01, type=float)
     parser.add_argument("--save_total_limit", default=2, type=int)
@@ -45,10 +44,10 @@ def argument_parser() -> ArgumentParser:
 def get_dataset(data_path):
     data = pd.read_csv(data_path, sep=";")
 
-    text = "Review: " + data["review"] + "; Aspect: " + data["aspect"]
-    output = data["polarity"].map({-1: "negativo", 0: "neutro", 1: "positivo"})
+    data["text"] = "Review: " + data["review"] + "; Aspect: " + data["aspect"]
+    data["output"] = data["polarity"].map({-1: "negativo", 0: "neutro", 1: "positivo"})
 
-    data = pd.concat([text, output], axis=1)
+    data = Dataset.from_pandas(data[["text", "output"]])
 
     return data
 
@@ -105,12 +104,12 @@ def main():
     tokenized_datasets_train = train_data.map(preprocess_function, batched=True)
 
     trainer_args = Seq2SeqTrainingArguments(
-        output_dir=args.model_name_or_path,
-        evaluation_strategy=args.evaluation_strategy,
-        eval_steps=args.eval_steps,
+        output_dir=args.output_dir,
+        #evaluation_strategy=args.evaluation_strategy,
+        #eval_steps=args.eval_steps,
         learning_rate=args.learning_rate,
         per_device_train_batch_size=args.per_device_train_batch_size,
-        per_device_predit_batch_size=args.per_device_predict_batch_size,
+        #per_device_eval_batch_size=args.per_device_eval_batch_size,
         seed=args.seed,
         weight_decay=args.weight_decay,
         save_total_limit=args.save_total_limit,
@@ -126,7 +125,7 @@ def main():
         train_dataset=tokenized_datasets_train,
         data_collator=data_collator,
         tokenizer=tokenizer,
-        compute_metrics=compute_metrics,
+        #compute_metrics=compute_metrics,
     )
 
     gc.collect()
