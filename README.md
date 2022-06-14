@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-    <h1 align="center">ABSAPT 2022 - task2</h1>
+    <h1 align="center">ABSAPT 2022</h1>
     <img src="https://images.emojiterra.com/twitter/v14.0/512px/1f3c6.png" alt="https://emojiterra.com/trophy" width="200">
   
   <br />
@@ -12,10 +12,10 @@
 
 
 
-## Description
+## Task 2
 
 Submission is available on [DeepLearningBrasil_task2.csv](DeepLearningBrasil_task2.csv).
-## How-to
+### How-to
 1. Install requirements
 ```bash
 pip install -r requirements.txt
