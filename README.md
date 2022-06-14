@@ -7,7 +7,7 @@
  
   <br />
   
-  [Deep Learning Brasil group](https://www.linkedin.com/company/inteligencia-artificial-deep-learning-brasil) submission on task 2 - Sentiment Orientation Extraction at [ABSAPT 2022](https://sites.google.com/inf.ufpel.edu.br/absapt2022/).
+  [Deep Learning Brasil group](https://www.linkedin.com/company/inteligencia-artificial-deep-learning-brasil) submission at [ABSAPT 2022](https://sites.google.com/inf.ufpel.edu.br/absapt2022/).
 </div>
 
 
