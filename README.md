@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```
 2. Train ensemble  
 Run Notebooks in order:   
-1 - [huggingface-roberta.ipynb](ATE/DeepLearningBrasil_task1.csv)   
+1 - [huggingface-roberta.ipynb](ATE/huggingface-roberta.ipynb)   
 2 - [huggingface-multilingual.ipynb](ATE/huggingface-multilingual.ipynb)    
 3 - [huggingface-futher-training.ipynb](ATE/huggingface-futher-training.ipynb)    
 
