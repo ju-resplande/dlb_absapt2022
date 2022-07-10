@@ -10,6 +10,8 @@
   [Deep Learning Brasil group](https://www.linkedin.com/company/inteligencia-artificial-deep-learning-brasil) submission at [ABSAPT 2022](https://sites.google.com/inf.ufpel.edu.br/absapt2022/).
 </div>
 
+
+- Submission files are available on [DeepLearningBrasil_task1.csv](DeepLearningBrasil_task1.csv) and [DeepLearningBrasil_task2.csv](DeepLearningBrasil_task2.csv).
 ## Installation
 
 ```bash
@@ -17,8 +19,6 @@ pip install -r requirements.txt
 ```
 
 ## Task 1 - ATE
-
-Submission is available on [DeepLearningBrasil_task1.csv](DeepLearningBrasil_task1.csv).
 
 ### How-to
 
@@ -32,7 +32,7 @@ Submission is available on [DeepLearningBrasil_task1.csv](DeepLearningBrasil_tas
 
 ## Task 2 - SOE
 
-Submission is available on [DeepLearningBrasil_task2.csv](DeepLearningBrasil_task2.csv).
+
 
 ### How-to
 
