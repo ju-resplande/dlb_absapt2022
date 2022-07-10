@@ -11,16 +11,17 @@
 </div>
 
 
-- Submission files are available on [DeepLearningBrasil_task1.csv](DeepLearningBrasil_task1.csv) and [DeepLearningBrasil_task2.csv](DeepLearningBrasil_task2.csv).
+Submission files are available on [DeepLearningBrasil_task1.csv](DeepLearningBrasil_task1.csv) and [DeepLearningBrasil_task2.csv](DeepLearningBrasil_task2.csv).
 ## Installation
 
 ```bash
 pip install -r requirements.txt
 ```
+All experiments were made on V100 GPU (32GB).
 
-## Task 1 - ATE
 
-### How-to
+## How-to
+### Task 1 - ATE
 
 1. Train ensemble. Run Notebooks in order:
    1. [huggingface-roberta.ipynb](ATE/huggingface-roberta.ipynb)
@@ -30,11 +31,7 @@ pip install -r requirements.txt
 2. Generate submission file
 [eval.ipynb](ATE/eval.ipynb)
 
-## Task 2 - SOE
-
-
-
-### How-to
+### Task 2 - SOE
 
 1. Train ensemble
 
@@ -48,9 +45,9 @@ bash SOE/train_ensemble.sh
 bash SOE/predict_ensemble.sh
 ```
 
-## Experimental setup
+## License
 
-All experiments were made on V100 GPU (32GB).
+This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/). See `LICENSE.txt` for more information.
 
 ## Acknowledgments
 
