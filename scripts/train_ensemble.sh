@@ -9,5 +9,5 @@ for LEARNING_RATE in "${learning_rates[@]}"; do
         --model_name_or_path "unicamp-dl/ptt5-large-portuguese-vocab" \
         --learning_rate ${LEARNING_RATE} \
         --seed ${SEED} \
-        --output_dir output/seed_${SEED}_learning_rate_${LEARNING_RATE}
+        --output_dir SOE/output/seed_${SEED}_learning_rate_${LEARNING_RATE}
 done

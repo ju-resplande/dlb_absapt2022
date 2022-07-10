@@ -10,25 +10,27 @@
   [Deep Learning Brasil group](https://www.linkedin.com/company/inteligencia-artificial-deep-learning-brasil) submission at [ABSAPT 2022](https://sites.google.com/inf.ufpel.edu.br/absapt2022/).
 </div>
 
+## Installation
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Task 1 - ATE
 
 Submission is available on [DeepLearningBrasil_task1.csv](DeepLearningBrasil_task1.csv).
 
 ### How-to
 
-1. Install requirements
+1. Train ensemble  
 
-```bash
-pip install -r requirements.txt
-```
-
-2. Train ensemble  
 Run Notebooks in order:
-1 - [huggingface-roberta.ipynb](ATE/huggingface-roberta.ipynb)
-2 - [huggingface-multilingual.ipynb](ATE/huggingface-multilingual.ipynb)
-3 - [huggingface-futher-training.ipynb](ATE/huggingface-futher-training.ipynb)
 
-3. Generate submission file
+  1. [huggingface-roberta.ipynb](ATE/huggingface-roberta.ipynb)
+  2. [huggingface-multilingual.ipynb](ATE/huggingface-multilingual.ipynb)
+  3. [huggingface-futher-training.ipynb](ATE/huggingface-futher-training.ipynb)
+
+  2. Generate submission file
 [eval.ipynb](ATE/eval.ipynb)
 
 ## Task 2 - SOE
@@ -37,23 +39,16 @@ Submission is available on [DeepLearningBrasil_task2.csv](DeepLearningBrasil_tas
 
 ### How-to
 
-1. Install requirements
+1. Train ensemble
 
 ```bash
-cd SOE
-pip install -r requirements.txt
+bash SOE/train_ensemble.sh
 ```
 
-2. Train ensemble
+2. Predict ensemble
 
 ```bash
-bash train_ensemble.sh
-```
-
-4. Predict ensemble
-
-```bash
-bash predict_ensemble.sh
+bash SOE/predict_ensemble.sh
 ```
 
 ## Experimental setup
