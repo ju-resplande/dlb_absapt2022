@@ -1,20 +1,14 @@
 from argparse import ArgumentParser
-from pprint import pprint
 import json
 import os
 
-from torch.utils.data import DataLoader
-from datasets import Dataset
 from transformers import (
     AutoTokenizer,
     AutoModelForSeq2SeqLM,
-    Seq2SeqTrainer,
-    Seq2SeqTrainingArguments,
-    DataCollatorForSeq2Seq,
 )
 from tqdm import tqdm
 import pandas as pd
-import numpy as np
+
 
 def argument_parser() -> ArgumentParser:
     parser = ArgumentParser(description="T5 training for ABSAPT")
@@ -36,7 +30,9 @@ def get_dataset(data_path):
 
 
 def partial_predict(model, tokenizer, text):
-    input_ids = tokenizer.encode(text, return_tensors="pt", add_special_tokens=True).to("cuda")
+    input_ids = tokenizer.encode(text, return_tensors="pt", add_special_tokens=True).to(
+        "cuda"
+    )
     model.eval()
 
     generated_ids = model.generate(
@@ -47,9 +43,8 @@ def partial_predict(model, tokenizer, text):
         repetition_penalty=2.5,
         do_sample=False,
         top_k=50,
-        num_return_sequences=1
+        num_return_sequences=1,
     ).squeeze()
-
 
     return tokenizer.decode(generated_ids, skip_special_tokens=True)
 
@@ -61,21 +56,12 @@ def main():
 
     tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path)
     model = AutoModelForSeq2SeqLM.from_pretrained(args.model_name_or_path)
-    data_collator = DataCollatorForSeq2Seq(tokenizer, model=model)
-
-    trainer = Seq2SeqTrainer(
-        model,
-        data_collator=data_collator,
-        tokenizer=tokenizer,
-    )
 
     predictions = list()
-    predict = lambda batch : partial_predict(
-        model, tokenizer, batch
-    )
+    predict = lambda batch: partial_predict(model, tokenizer, batch)
     for text in tqdm(test_data, desc="Generating.."):
-      prediction = predict(text)
-      predictions.append(prediction)
+        prediction = predict(text)
+        predictions.append(prediction)
 
     predictions_file = os.path.join(args.output_dir, "predictions.json")
     with open(predictions_file, "w") as f:

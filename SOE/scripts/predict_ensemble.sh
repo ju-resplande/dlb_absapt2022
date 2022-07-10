@@ -8,7 +8,7 @@ for LEARNING_RATE in "${learning_rates[@]}"; do
 
    mkdir ${prediction_dir}
    python SOE/predict.py \
-     --test_data data/test_task2.csv \
+     --test_data SOE/data/test_task2.csv \
      --output_dir ${prediction_dir} \
      --model_name_or_path SOE/output/seed_${SEED}_learning_rate_${LEARNING_RATE}/checkpoint-1500
 done
