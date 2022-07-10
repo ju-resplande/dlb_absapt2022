@@ -22,15 +22,12 @@ Submission is available on [DeepLearningBrasil_task1.csv](DeepLearningBrasil_tas
 
 ### How-to
 
-1. Train ensemble  
+1. Train ensemble. Run Notebooks in order:
+   1. [huggingface-roberta.ipynb](ATE/huggingface-roberta.ipynb)
+   2. [huggingface-multilingual.ipynb](ATE/huggingface-multilingual.ipynb)
+   3. [huggingface-futher-training.ipynb](ATE/huggingface-futher-training.ipynb)
 
-Run Notebooks in order:
-
-  1. [huggingface-roberta.ipynb](ATE/huggingface-roberta.ipynb)
-  2. [huggingface-multilingual.ipynb](ATE/huggingface-multilingual.ipynb)
-  3. [huggingface-futher-training.ipynb](ATE/huggingface-futher-training.ipynb)
-
-  2. Generate submission file
+2. Generate submission file
 [eval.ipynb](ATE/eval.ipynb)
 
 ## Task 2 - SOE
