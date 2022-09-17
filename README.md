@@ -11,7 +11,7 @@
 </div>
 
 
-Submission files are available on [DeepLearningBrasil_task1.csv](DeepLearningBrasil_task1.csv) and [DeepLearningBrasil_task2.csv](DeepLearningBrasil_task2.csv).
+Submission files are available on [DeepLearningBrasil_task1.csv](DeepLearningBrasil_task1.csv) and [DeepLearningBrasil_task2.csv](DeepLearningBrasil_task2.csv). Here is the [presentation](presentation.pdf).
 ## Installation
 
 ```bash
